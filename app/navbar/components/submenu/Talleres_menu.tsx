@@ -1,77 +1,234 @@
 "use client";
 import { ArrowRight } from "lucide-react";
-import { TALLERES_CATEGORIES, TALLERES_BOTTOM_LINKS, TALLERES_HERO_TAGS } from "../../data/nav.data";
-import { BottomLinks } from "./Links_bottom";
+import { TALLERES_BOTTOM_LINKS, TALLERES_CATEGORIES, TALLERES_HERO_TAGS } from "../../data/nav.data";
+import { Barlow_Condensed, Inter_Tight } from "next/font/google";
 
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const barlow =  Barlow_Condensed({
+  subsets: ['latin'],
+  weight: ["900"], // Asegúrate de agregar el peso que necesites
+});
+
+/* ── Organic blob SVG background ── */
+function OrganicBg({ color = "#000" }: { color?: string }) {
+  return (
+    <div className="absolute inset-0 overflow-hidden rounded-[inherit] opacity-[0.18] pointer-events-none">
+      <svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M320,80 Q380,120 370,200 Q360,290 280,330 Q190,370 120,310 Q40,250 60,160 Q80,70 170,50 Q260,30 320,80Z"
+          fill={color}
+        />
+        <circle cx="60" cy="320" r="60" fill={color} opacity="0.6" />
+        <circle cx="350" cy="60" r="40" fill={color} opacity="0.4" />
+        <path d="M30,150 Q80,100 120,160 Q160,220 100,250 Q40,280 20,220 Z" fill={color} opacity="0.5" />
+      </svg>
+    </div>
+  );
+}
+
+/* ── Rainbow dashed border overlay ── */
+function RainbowBorder({ bg }: { bg: string }) {
+  return (
+    <div
+      className="absolute inset-0 rounded-[20px] pointer-events-none"
+      style={{
+        border: "3px dashed transparent",
+        backgroundImage: `linear-gradient(${bg},${bg}), linear-gradient(135deg,#ff6b6b,#ffd700,#90ee90,#87ceeb,#9370db,#ff69b4)`,
+        backgroundOrigin: "border-box",
+        backgroundClip: "padding-box, border-box",
+      }}
+    />
+  );
+}
+
+/* ── Card 1: Hero oscura con imagen de fondo ── */
+function HeroCard() {
+  return (
+    <div
+      className="rounded-[20px] overflow-hidden relative flex flex-col justify-center p-5 min-h-[450px] group"
+      style={{ background: "linear-gradient(160deg,#1a0a2e,#2a1a1a)" }}
+    >
+      {/* Imagen de fondo */}
+      <div
+        className="absolute inset-0 rounded-[20px] transition-opacity duration-300  group-hover:opacity-40"
+        style={{
+          background: "url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80') center/cover",
+        }}
+      />
+      {/* Gradiente oscuro uniforme */}
+      <div
+        className="absolute inset-0 rounded-[20px]"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,.40) 50%, rgba(0,0,0,.15) 100%)" }}
+      />
+
+      {/* Contenido centrado verticalmente */}
+      <div className="text-center relative z-10 flex flex-col gap-3">
+        <h2
+          className={`${barlow.className} text-white text-5xl leading-none tracking-wide font-bold uppercase`}
+           
+        >
+          DESCUBRE TU<br />TALENTO<br />ARTÍSTICO
+        </h2>
+
+        <div className="flex justify-center flex-wrap gap-1.5">
+          {TALLERES_HERO_TAGS.map((t) => (
+            <span
+              key={t}
+              className={`${interTight.className} inline-block px-3 py-1 rounded-full text-sm font-bold
+                bg-orange-200 text-black border border-white/30
+                cursor-pointer hover:bg-orange-950 hover:text-white transition-all whitespace-nowrap`}
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+
+        <button
+          className={`${interTight.className} self-center bg-yellow-300 text-black font-extrabold rounded-full px-5 py-2.5 mt-2 text-sm
+            border-2 border-yellow-300 hover:bg-amber-400 hover:border-amber-400 hover:text-black
+            transition-all duration-200 cursor-pointer`}
+        >
+          Ver el calendario
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ── Card 2: PINTURA — rosa + person ── */
+function PinturaCard() {
+  return (
+    <div className="rounded-[20px] relative overflow-hidden flex flex-col gap-2.5 p-[18px] min-h-[380px]"
+      style={{ background: "#FFAAB5" }}>
+      <OrganicBg color="#e05070" />
+      <h2 className="font-display text-[22px] relative z-10">PINTURA</h2>
+      <div className="flex flex-wrap gap-1.5 flex-1 relative z-10 content-start">
+        {TALLERES_CATEGORIES[0].tags.map((t) => (
+          <span key={t} className="inline-block px-3 py-1 rounded-full text-xs font-bold
+            bg-black/10 cursor-pointer hover:bg-black/20 transition-colors whitespace-nowrap">
+            {t}
+          </span>
+        ))}
+      </div>
+      <div className="relative z-10 pb-20">
+        <button className="bg-black text-white font-extrabold rounded-full px-5 py-2.5 text-sm
+          hover:opacity-80 transition-opacity border-none cursor-pointer">
+          Ver ofertas
+        </button>
+      </div>
+      <div className="absolute bottom-0 right-2 text-[110px] leading-none pointer-events-none z-10"
+        style={{ filter: "drop-shadow(-4px 0 0 #F5E642)" }}>
+        👩‍🎨
+      </div>
+    </div>
+  );
+}
+
+/* ── Card 3: CERÁMICA — lavanda + person ── */
+function CeramicaCard() {
+  return (
+    <div className="rounded-[20px] relative overflow-hidden flex flex-col gap-2.5 p-[18px] min-h-[380px]"
+      style={{ background: "#C4B5F4" }}>
+      <OrganicBg color="#7b5ea7" />
+      <h2 className="font-display text-[22px] relative z-10">CERÁMICA</h2>
+      <div className="flex flex-wrap gap-1.5 flex-1 relative z-10 content-start">
+        {TALLERES_CATEGORIES[1].tags.map((t) => (
+          <span key={t} className="inline-block px-3 py-1 rounded-full text-xs font-bold
+            bg-black/10 cursor-pointer hover:bg-black/20 transition-colors whitespace-nowrap">
+            {t}
+          </span>
+        ))}
+      </div>
+      <div className="relative z-10 pb-20">
+        <button className="bg-black text-white font-extrabold rounded-full px-5 py-2.5 text-sm
+          hover:opacity-80 transition-opacity border-none cursor-pointer">
+          Ver ofertas
+        </button>
+      </div>
+      <div className="absolute bottom-0 right-2 text-[110px] leading-none pointer-events-none z-10"
+        style={{ filter: "drop-shadow(-4px 0 0 #F5E642)" }}>
+        🧑‍🏭
+      </div>
+    </div>
+  );
+}
+
+/* ── Small card con rainbow dashed border ── */
+function SmallCard({ title, bg, tags, blobColor }: {
+  title: string; bg: string; tags: string[]; blobColor: string;
+}) {
+  return (
+    <div className="rounded-[20px] relative overflow-hidden flex flex-col gap-2 p-4 flex-1"
+      style={{ background: bg, minHeight: 180 }}>
+      <OrganicBg color={blobColor} />
+      <RainbowBorder bg={bg} />
+      <h2 className="font-display text-base relative z-10">{title}</h2>
+      <div className="flex flex-wrap gap-1 flex-1 relative z-10">
+        {tags.map((t) => (
+          <span key={t} className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold
+            bg-black/10 cursor-pointer hover:bg-black/20 transition-colors whitespace-nowrap">
+            {t}
+          </span>
+        ))}
+      </div>
+      <button className="bg-black text-white font-extrabold rounded-full px-4 py-1.5 text-xs
+        self-start hover:opacity-80 transition-opacity border-none cursor-pointer relative z-10">
+        Ver ofertas
+      </button>
+    </div>
+  );
+}
+
+/* ── Bottom links ── */
+function BottomLinks() {
+  return (
+    <div className="flex gap-8 py-3.5 border-t border-black/8">
+      {TALLERES_BOTTOM_LINKS.map((l) => (
+        <button key={l.label} className="flex items-center gap-2 group bg-transparent border-none cursor-pointer text-left p-0">
+          <div>
+            <p className="text-[13px] font-extrabold">{l.label}</p>
+            {l.sub && <p className="text-xs text-gray-500">{l.sub}</p>}
+          </div>
+          <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/* ── MAIN EXPORT ── */
 export function TalleresMenu() {
   return (
     <div>
-      <div className="grid gap-3 p-5" style={{ gridTemplateColumns: "1fr 1fr 1fr 0.7fr" }}>
-        {/* Hero card izquierda */}
-        <div className="rounded-2xl relative flex flex-col justify-between p-5 overflow-hidden"
-          style={{ background: "linear-gradient(160deg,#3b1050,#1a3560)", minHeight: 260 }}>
-          <div className="absolute inset-0 opacity-10"
-            style={{ background: "radial-gradient(circle at 30% 70%,#ff6b6b,transparent 55%)" }} />
-          <h2 className="font-display text-white leading-tight text-xl relative z-10">
-            6 FORMAS<br />DE SER<br />ARTISTA
-          </h2>
-          <div className="relative z-10">
-            <div className="flex flex-wrap gap-1 mb-3">
-              {TALLERES_HERO_TAGS.map((t) => (
-                <span key={t} className="inline-block px-3 py-1 rounded-full text-[11px] font-bold
-                  bg-white/15 text-white cursor-pointer hover:bg-white/25 transition-colors whitespace-nowrap">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <button className="bg-[#F5E642] text-black font-extrabold rounded-full px-5 py-2 text-sm
-              hover:scale-105 hover:shadow-lg transition-all">
-              Ver el calendario
-            </button>
-          </div>
-        </div>
+      <div
+        className="grid gap-3 py-[18px]"
+        style={{ gridTemplateColumns: "0.9fr 1fr 1fr 0.65fr" }}
+      >
+        <HeroCard />
+        <PinturaCard />
+        <CeramicaCard />
 
-        {/* Pintura + Cerámica */}
-        {TALLERES_CATEGORIES.slice(0, 2).map((c) => (
-          <div key={c.title} className="rounded-2xl p-4 flex flex-col gap-3" style={{ background: c.bg }}>
-            <h3 className="font-display text-lg">{c.title}</h3>
-            <div className="flex flex-wrap gap-1 flex-1">
-              {c.tags.map((t) => (
-                <span key={t} className="inline-block px-3 py-1 rounded-full text-xs font-bold
-                  bg-black/10 cursor-pointer hover:bg-black/20 transition-colors">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <button className="bg-black text-white font-extrabold rounded-full px-4 py-2 text-xs
-              self-start hover:opacity-80 transition-opacity">
-              Ver ofertas
-            </button>
-          </div>
-        ))}
-
-        {/* Manualidades + PIE Niños apilados */}
         <div className="flex flex-col gap-3">
-          {TALLERES_CATEGORIES.slice(2).map((c) => (
-            <div key={c.title} className="rounded-2xl p-4 flex flex-col gap-2 flex-1" style={{ background: c.bg }}>
-              <h3 className="font-display text-base">{c.title}</h3>
-              <div className="flex flex-wrap gap-1 flex-1">
-                {c.tags.map((t) => (
-                  <span key={t} className="inline-block px-3 py-1 rounded-full text-xs font-bold
-                    bg-black/10 cursor-pointer hover:bg-black/20 transition-colors">
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <button className="bg-black text-white font-extrabold rounded-full px-4 py-2 text-xs
-                self-start hover:opacity-80 transition-opacity">
-                Ver ofertas
-              </button>
-            </div>
-          ))}
+          <SmallCard
+            title="MANUALIDADES"
+            bg="#A8F0D0"
+            blobColor="#1a7a50"
+            tags={TALLERES_CATEGORIES[2].tags}
+          />
+          <SmallCard
+            title="PIE NIÑOS"
+            bg="#FFD6E0"
+            blobColor="#c0507a"
+            tags={TALLERES_CATEGORIES[3].tags}
+          />
         </div>
       </div>
-      <BottomLinks links={TALLERES_BOTTOM_LINKS} />
+
+      <BottomLinks />
     </div>
   );
 }

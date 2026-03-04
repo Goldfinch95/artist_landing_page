@@ -39,7 +39,7 @@ export const TALLERES_BOTTOM_LINKS: BottomLink[] = [
 ];
 
 export const TALLERES_HERO_TAGS = [
-  "Eventos PIE","Cafés Creativos PIE","Talleres PIE","Cursos de varios días","Clase de estudio PIE","Estudio abierto PIE",
+  "Talleres","Cursos","taller de...","curso de...","taller de...","curso de...",
 ];
 
 /* ── CAFÉS ── */

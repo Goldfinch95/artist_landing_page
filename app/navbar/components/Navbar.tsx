@@ -134,7 +134,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 >
                   <FontAwesomeIcon
                     icon={icon}
-                    style={{ color: item.iconColor, width: 20, height: 20, flexShrink: 0 }}
+                    style={{ color: item.iconColor, width: 28, height: 28, flexShrink: 0 }}
                   />
                   <span className={`text-[12px] xl:text-[13px] leading-tight text-left whitespace-nowrap
                     ${isOpen ? "font-extrabold" : "font-semibold"}`}>
@@ -157,7 +157,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 className={`group rounded-full flex items-center gap-0 px-3 py-2.5 border-none cursor-pointer transition-all duration-200 shadow-sm overflow-hidden
                   ${activeAction === "calendar" ? "bg-orange-100 hover:bg-orange-100" : "bg-white hover:bg-gray-100"}`}
               >
-                <FontAwesomeIcon icon={faCalendar} className="flex-shrink-0 w-4 h-4" />
+                <FontAwesomeIcon icon={faCalendar} className="flex-shrink-0 w-6! h-6!" />
                 <span className="max-w-0 overflow-hidden group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-200 text-sm font-semibold whitespace-nowrap">
                   Calendario
                 </span>
@@ -168,7 +168,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 className={`group rounded-full flex items-center gap-0 px-3 py-2.5 border-none cursor-pointer transition-all duration-200 shadow-sm overflow-hidden
                   ${activeAction === "faq" ? "bg-orange-100 hover:bg-orange-100" : "bg-white hover:bg-gray-100"}`}
               >
-                <FontAwesomeIcon icon={faCircleQuestion} className="flex-shrink-0 w-4 h-4" />
+                <FontAwesomeIcon icon={faCircleQuestion} className="flex-shrink-0 w-6! h-6!" />
                 <span className="max-w-0 overflow-hidden group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-200 text-sm font-semibold whitespace-nowrap">
                   FAQ
                 </span>
@@ -194,7 +194,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
         {/* ── MEGA MENU DESKTOP (lg+) ── */}
         {openMenu && (
           <div
-            className="hidden lg:block w-full border-t border-black/5 animate-in slide-in-from-top-2 duration-200"
+            className="hidden lg:block w-full  animate-in slide-in-from-top-2 duration-200"
             style={{ background: "#FDF8ED" }}
           >
             <div className="relative">
@@ -204,7 +204,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
               >
                 <X size={14} />
               </button>
-              <div className="max-w-[1100px] mx-auto">
+              <div className="max-w-[1400px] mx-auto px-14">
                 {MEGA_MAP[openMenu]}
               </div>
             </div>
