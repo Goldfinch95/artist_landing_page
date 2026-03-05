@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main>
       <Navbar openMenu={openMenu} toggleMenu={toggleMenu} closeMenu={closeMenu} />
-      {/*<Hero />*/}
+      <Hero />
     </main>
   );
 }
