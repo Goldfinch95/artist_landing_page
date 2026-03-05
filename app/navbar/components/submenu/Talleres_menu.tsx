@@ -114,7 +114,7 @@ function PinturaCard() {
       <BlobBorder colors={["#FFB3C1","#A8D8EA","#B5EAD7","#FFDAC1"]} />
       <div className="absolute bg-[#fdcdc5] inset-[10px] rounded-[16px] flex flex-col gap-2 lg:gap-2.5 p-4 lg:p-[18px] overflow-hidden">
         <OrganicBg color="#e05070" />
-        <h2 className={`${barlow.className} text-black text-3xl lg:text-4xl relative z-10`}>PINTURA</h2>
+        <h2 className={`${barlow.className} text-black text-3xl lg:text-4xl relative z-10`}>TÉCNICAS DE PINTURA TRADICIONAL</h2>
         <div className="flex flex-wrap gap-1 lg:gap-1.5 flex-1 relative z-10 content-start">
           {TALLERES_CATEGORIES[0].tags.map((t) => (
             <span key={t} className="inline-block px-2.5 py-0.5 lg:px-3 lg:py-1 rounded-full
@@ -143,7 +143,7 @@ function CeramicaCard() {
       <BlobBorder colors={["#B5EAD7","#FFDAC1","#FFB3C1","#A8D8EA"]} />
       <div className="absolute bg-[#d3d0f2] inset-[10px] rounded-[16px] flex flex-col gap-2 lg:gap-2.5 p-4 lg:p-[18px] overflow-hidden">
         <OrganicBg color="#7b5ea7" />
-        <h2 className={`${barlow.className} text-black text-3xl lg:text-4xl relative z-10`}>CERÁMICA</h2>
+        <h2 className={`${barlow.className} text-black text-3xl lg:text-4xl relative z-10`}>EXPLORA EL ARTE ABSTRACTO Y MODERNO</h2>
         <div className="flex flex-wrap gap-1 lg:gap-1.5 flex-1 relative z-10 content-start">
           {TALLERES_CATEGORIES[1].tags.map((t) => (
             <span key={t} className="inline-block px-2.5 py-0.5 lg:px-3 lg:py-1 rounded-full
@@ -304,7 +304,7 @@ export function TalleresMenu() {
         <CeramicaCard />
         <div className="flex flex-col gap-3">
           <SmallCard
-            title="MANUALIDADES"
+            title="TÉCNICAS AVANZADAS Y ESPECIALIZADAS"
             bg="#A8F0D0"
             blobColor="#1a7a50"
             tags={TALLERES_CATEGORIES[2].tags}
@@ -313,7 +313,7 @@ export function TalleresMenu() {
             blobColors={["#A8D8EA","#B5EAD7","#FFDAC1","#FFB3C1"]}
           />
           <SmallCard
-            title="PIE NIÑOS"
+            title="PROYECTOS CREATIVOS Y TÉCNICAS URBANAS"
             bg="#FFD6E0"
             blobColor="#c0507a"
             tags={TALLERES_CATEGORIES[3].tags}

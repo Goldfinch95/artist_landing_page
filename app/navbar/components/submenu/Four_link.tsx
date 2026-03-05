@@ -13,14 +13,7 @@ export function MegaSedes() {
               style={{ background: "radial-gradient(circle at 80% 20%,#ffd700,transparent 50%)" }} />
             <h2 className="font-display text-white text-2xl relative z-10">{l.title}</h2>
             <div className="relative z-10">
-              <div className="flex flex-wrap gap-1 mb-4">
-                {l.tags.map((t) => (
-                  <span key={t} className="inline-block px-3 py-1 rounded-full text-xs font-bold
-                    bg-[#F5E642]/25 text-white cursor-pointer hover:bg-[#F5E642]/40 transition-colors">
-                    {t}
-                  </span>
-                ))}
-              </div>
+              
               <button className="bg-[#F5E642] text-black font-extrabold rounded-full px-5 py-2 text-sm
                 hover:scale-105 hover:shadow-lg transition-all">
                 {l.btn}

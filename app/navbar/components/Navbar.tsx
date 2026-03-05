@@ -10,7 +10,7 @@ import {
   faChalkboardUser,
   faPaintBrush,
 } from "@fortawesome/free-solid-svg-icons";
-import { faCalendar, faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { faCalendar, faCircleQuestion, faImage } from "@fortawesome/free-regular-svg-icons";
 import { NavItemId } from "../types/nav.types";
 import { NAV_ITEMS } from "../data/nav.data";
 import { TalleresMenu } from "./submenu/Talleres_menu";
@@ -27,7 +27,7 @@ const interTight = Inter_Tight({
 const ICON_MAP = {
   Hand:     faChalkboardUser,
   Coffee:   faPaintBrush,
-  Sparkles: faBuildingColumns,
+  Sparkles: faImage,
   MapPin:   faLocationDot,
   Crown:    faCrown,
 };
@@ -112,7 +112,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
 
           {/* Logo */}
           <div
-            className="-translate-x-1 lg:-translate-x-4 flex-shrink-0 w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] lg:w-[88px] lg:h-[88px] bg-[#F5E642] rounded-2xl flex flex-col items-center justify-center cursor-pointer shadow-[3px_3px_0_rgba(0,0,0,0.25)] transform -rotate-12"
+            className="-translate-x-1  lg:-translate-x-4  flex-shrink-0 w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] lg:w-[88px] lg:h-[88px] bg-[#F5E642] rounded-2xl flex flex-col items-center justify-center cursor-pointer shadow-[3px_3px_0_rgba(0,0,0,0.25)] transform -rotate-12 hover:-rotate-16"
             style={{ fontFamily: "'Lilita One', cursive" }}
           >
             <span className="text-xl sm:text-2xl lg:text-3xl text-black leading-none tracking-tighter">
