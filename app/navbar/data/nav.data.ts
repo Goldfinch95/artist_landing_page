@@ -12,7 +12,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const TALLERES_CATEGORIES: MegaCategoryCard[] = [
   {
     title: "PINTURA",
-    bg: "#FFAAB5",
+    bg: "#9fcb9c",
     tags: ["Curso de pintura","Dibujo","Acrílico","Acuarela","Caligrafía","Dibujo artístico","Pintura de acción","Boceto urbano","Pintura libre","Cursos de graffiti","Pintura para adultos","Clase de estudio PIE"],
   },
   {
@@ -22,7 +22,7 @@ export const TALLERES_CATEGORIES: MegaCategoryCard[] = [
   },
   {
     title: "MANUALIDADES",
-    bg: "#A8F0D0",
+    bg: "#daf4d8",
     tags: ["Cursos creativos"],
   },
   {
