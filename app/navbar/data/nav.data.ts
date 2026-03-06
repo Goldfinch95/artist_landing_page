@@ -73,9 +73,8 @@ export const TALLERES_CATEGORIES: MegaCategoryCard[] = [
 ];
 
 export const TALLERES_BOTTOM_LINKS: BottomLink[] = [
-  { label: "6 Formas de ser artista", sub: "Todas las ofertas en un lugar" },
-  { label: "Ver calendario", sub: "Todos los talleres y cursos" },
-  { label: "Preguntas frecuentes", sub: "Tus preguntas, nuestras respuestas" },
+  { label: "Explora tus posibilidades creativas", sub: "Descubre todos los talleres y técnicas disponibles" },
+  { label: "Consulta nuestro calendario", sub: "Todos los talleres y cursos en un solo lugar" },
 ];
 
 export const TALLERES_HERO_TAGS = [
@@ -107,8 +106,8 @@ export const CAFES_LOCATIONS: MegaCategoryCard[] = [
 ];
 
 export const CAFES_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Revisá tu cerámica", sub: "¿Lista para buscar?" },
-  { label: "Eventos comunitarios", sub: "" },
+  { label: "Mis obras", sub: "Descubrí mis creaciones y técnicas" },
+  { label: "Galería de alumnos", sub: "Explorá la creatividad de mis estudiantes" },
 ];
 
 /* ── FIESTAS ── */
@@ -122,8 +121,8 @@ export const FIESTAS_CATEGORIES: MegaCategoryCard[] = [
 ];
 
 export const FIESTAS_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Planificador de eventos", sub: "Creá un presupuesto paso a paso" },
-  { label: "Contactanos", sub: "Estamos para ayudarte" },
+  { label: "Síguenos en redes", sub: "Descubrí nuestras novedades y creaciones" },
+  { label: "Contáctame", sub: "Estamos para responder tus dudas" },
 ];
 
 /* ── SEDES ── */
@@ -152,8 +151,8 @@ export const SEDES_LOCATIONS = [
 ];
 
 export const SEDES_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Contactanos", sub: "Estamos para ayudarte" },
-  { label: "Nuestro equipo", sub: "Las personas detrás de PIE" },
+  { label: "Nuestra sede", sub: "Visitanos en San Patricio, Temperley" },
+  { label: "Horarios y visitas", sub: "Conocé los días y horarios de los talleres" },
 ];
 
 /* ── MEMBRESÍAS ── */

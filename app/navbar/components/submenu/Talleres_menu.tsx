@@ -1,10 +1,10 @@
 "use client";
-import { ArrowRight } from "lucide-react";
 import {
   TALLERES_BOTTOM_LINKS,
   TALLERES_CATEGORIES,
   TALLERES_HERO_TAGS,
 } from "../../data/nav.data";
+import { BottomLinks } from "./Links_bottom";
 import { Barlow_Condensed, Inter_Tight } from "next/font/google";
 
 const interTight = Inter_Tight({
@@ -208,23 +208,6 @@ function SmallCard({
   );
 }
 
-/* ── Bottom links ── */
-function BottomLinks() {
-  return (
-    <div className="flex flex-wrap gap-4 lg:gap-8 py-3.5 border-t border-black/8">
-      {TALLERES_BOTTOM_LINKS.map((l) => (
-        <button key={l.label} className="flex items-center gap-2 group bg-transparent border-none cursor-pointer text-left p-0">
-          <div>
-            <p className="text-[12px] lg:text-[13px] font-extrabold">{l.label}</p>
-            {l.sub && <p className="text-[10px] lg:text-xs text-gray-500">{l.sub}</p>}
-          </div>
-          <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
-        </button>
-      ))}
-    </div>
-  );
-}
-
 /* ── MAIN EXPORT ── */
 export function TalleresMenu() {
   return (
@@ -236,7 +219,7 @@ export function TalleresMenu() {
         <PinturaCard />
         <CeramicaCard />
         <SmallCard
-          title="MANUALIDADES"
+          title="TÉCNICAS AVANZADAS Y ESPECIALIZADAS"
           bg="#A8F0D0"
           blobColor="#1a7a50"
           tags={TALLERES_CATEGORIES[2].tags}
@@ -245,7 +228,7 @@ export function TalleresMenu() {
           blobColors={["#A8D8EA","#B5EAD7","#FFDAC1","#FFB3C1"]}
         />
         <SmallCard
-          title="PIE NIÑOS"
+          title="PROYECTOS Y CURSOS DE APLICACIÓN PRÁCTICA"
           bg="#FFD6E0"
           blobColor="#c0507a"
           tags={TALLERES_CATEGORIES[3].tags}
@@ -253,7 +236,7 @@ export function TalleresMenu() {
           tagHoverBg="#c0507a"
           blobColors={["#FFDAC1","#FFB3C1","#A8D8EA","#B5EAD7"]}
         />
-        <BottomLinks />
+        <BottomLinks links={TALLERES_BOTTOM_LINKS} />
       </div>
 
       {/* ── TABLET (768px - 1024px): 2 columnas ── */}
@@ -263,7 +246,7 @@ export function TalleresMenu() {
         <CeramicaCard />
         <div className="flex flex-col gap-4">
           <SmallCard
-            title="MANUALIDADES"
+            title="TÉCNICAS AVANZADAS Y ESPECIALIZADAS"
             bg="#A8F0D0"
             blobColor="#1a7a50"
             tags={TALLERES_CATEGORIES[2].tags}
@@ -272,7 +255,7 @@ export function TalleresMenu() {
             blobColors={["#A8D8EA","#B5EAD7","#FFDAC1","#FFB3C1"]}
           />
           <SmallCard
-            title="PIE NIÑOS"
+            title="PROYECTOS Y CURSOS DE APLICACIÓN PRÁCTICA"
             bg="#FFD6E0"
             blobColor="#c0507a"
             tags={TALLERES_CATEGORIES[3].tags}
@@ -282,17 +265,15 @@ export function TalleresMenu() {
           />
         </div>
         <div className="col-span-2">
-          <BottomLinks />
+          <BottomLinks links={TALLERES_BOTTOM_LINKS} />
         </div>
       </div>
 
-      {/* ── LAPTOP + DESKTOP (1024px+): 4 columnas breakout ── */}
+      {/* ── LAPTOP + DESKTOP (1024px+): 4 columnas ── */}
       <div
-  className="grid gap-5 py-[18px] w-full"
-  style={{
-    gridTemplateColumns: "1fr 1fr 1fr 1fr",
-  }}
->
+        className="hidden lg:grid gap-5 py-[18px] w-full"
+        style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr" }}
+      >
         <HeroCard />
         <PinturaCard />
         <CeramicaCard />
@@ -317,11 +298,8 @@ export function TalleresMenu() {
           />
         </div>
       </div>
-      <div className="hidden lg:block" style={{
-        paddingLeft: "clamp(2rem, 5vw, 7rem)",
-        paddingRight: "clamp(2rem, 5vw, 7rem)",
-      }}>
-        <BottomLinks />
+      <div className="hidden lg:block">
+        <BottomLinks links={TALLERES_BOTTOM_LINKS} />
       </div>
 
     </div>
