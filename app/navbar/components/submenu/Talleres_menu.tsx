@@ -288,17 +288,11 @@ export function TalleresMenu() {
 
       {/* ── LAPTOP + DESKTOP (1024px+): 4 columnas breakout ── */}
       <div
-        className="hidden lg:grid gap-5 py-[18px]"
-        style={{
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
-          width: "100vw",
-          position: "relative",
-          left: "50%",
-          transform: "translateX(-50%)",
-          paddingLeft: "clamp(2rem, 5vw, 7rem)",
-          paddingRight: "clamp(2rem, 5vw, 7rem)",
-        }}
-      >
+  className="grid gap-5 py-[18px] w-full"
+  style={{
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+  }}
+>
         <HeroCard />
         <PinturaCard />
         <CeramicaCard />

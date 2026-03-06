@@ -178,18 +178,13 @@ export const MEMBRESIAS_BOTTOM_LINKS: BottomLink[] = [
   { label: "Consultar saldo", sub: "¿Cuánto crédito te queda?" },
 ];
 
-{
-  /*export const TALLERES_HERO_TAGS = [
-  "Dibujo y pintura",
-  "Pintura Decorativa",
-  "Mix Media",
-  "Tecnicatura en Paisajismo",
-  "Tecnicatura country",
-  "Tecnicatura en pinceladas",
-  "Tecnicatura en acuarelas",
-  "Tecnicatura textil",
-  "Tecnicatura en Pintura Abstracta",
-  "Hiperrealismo en Color",
-  "Hiperrealismo en Monocromo",
-];*/
-}
+export const STUDENTS_PAINTS = [
+  "/students_paints/María_Del_Rosario.webp",
+  "/students_paints/Ayeza.webp",
+  "/students_paints/Agostina.webp",
+  "/students_paints/Carmen.webp",
+  "/students_paints/Edith.webp",
+  "/students_paints/Celeste.webp",
+  "/students_paints/Fabiana.webp",
+  "/students_paints/Cecilia_K.webp",
+];
