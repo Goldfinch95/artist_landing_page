@@ -1,7 +1,7 @@
 "use client";
 
 import { Navbar } from "@/app/navbar/components/Navbar";
-import { Hero }   from "./hero/components/Hero";
+import { Hero }   from "@/app/hero/components/Hero";
 import { useNavbar } from "./navbar/hooks/use_nav";
 
 export default function Home() {

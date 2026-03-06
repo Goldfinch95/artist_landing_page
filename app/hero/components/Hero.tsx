@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Barlow_Condensed, Inter_Tight } from "next/font/google";
 import { HERO_TABS, IMAGES_LEFT, IMAGES_RIGHT } from "../data/hero.data";
 import { ScrollColumn } from "./Scroll_collumn";
+import { ScrollRow } from "./Scroll_row";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["900"] });
 const interTight = Inter_Tight({
@@ -15,8 +16,8 @@ const interTight = Inter_Tight({
    Ajustá estos valores para cada tamaño de pantalla
 */
 const LAYOUT = {
-  laptop: { colWidth: 200, colGap: 24, rightMargin: 32, leftPadding: 48 },  // 1024–1280px
-  desktop: { colWidth: 260, colGap: 32, rightMargin: 80, leftPadding: 80 }, // 1280px+
+  laptop: { colWidth: 300, colGap: 24, rightMargin: 32, leftPadding: 48 },  // 1024–1280px
+  desktop: { colWidth: 280, colGap: 32, rightMargin: 80, leftPadding: 80 }, // 1280px+
 };
 
 function Tabs({ active, setActive }: { active: number; setActive: (i: number) => void }) {
@@ -27,10 +28,11 @@ function Tabs({ active, setActive }: { active: number; setActive: (i: number) =>
           key={t.id}
           onClick={() => setActive(i)}
           className={`${interTight.className} px-0 pb-1 lg:text-lg sm:text-sm font-bold
-            bg-transparent border-none cursor-pointer transition-all duration-200`}
+            bg-transparent border-none cursor-pointer transition-colors duration-200`}
           style={{
             color: active === i ? "#fff" : "rgba(255,255,255,0.45)",
-            borderBottom: active === i ? "2px solid white" : "2px solid transparent",
+            borderBottom: "2px solid",
+            borderColor: active === i ? "white" : "transparent",
           }}
         >
           {t.label}
@@ -92,65 +94,66 @@ export function Hero() {
       </svg>
 
       {/* ── MOBILE (< 768px): stack vertical ── */}
-      <div className="relative z-10 flex md:hidden flex-col min-h-screen px-5 pt-8 pb-10 gap-5">
-        <Tabs active={active} setActive={setActive} />
-        <h1
-          key={`title-sm-${active}`}
-          className={`${barlow.className} text-white leading-none uppercase animate-fadeUp`}
-          style={{ fontSize: "clamp(2.2rem, 9vw, 3rem)", whiteSpace: "pre-line" }}
-        >
-          {tab.title}
-        </h1>
-        <p className={`${interTight.className} text-white/85 text-sm leading-relaxed`}>
-          {tab.subtitle}
-        </p>
-        <div className="flex flex-col gap-3 items-start">
-          <CtaButton label={tab.btnLabel} />
-          <ArrowLink label={tab.linkLabel} />
-        </div>
-        {/* Columnas en mobile: dos columnas side by side */}
-        <div className="grid grid-cols-2 gap-3 flex-1 min-h-[360px] mt-2">
-          <ScrollColumn images={IMAGES_LEFT} direction="up" />
-          <ScrollColumn images={IMAGES_RIGHT} direction="down" />
-        </div>
-      </div>
+      <div className="relative z-10 flex md:hidden flex-col min-h-screen pt-45 pb-10 gap-5">
+  <div className="px-5 flex flex-col gap-5">
+    <Tabs active={active} setActive={setActive} />
+    <h1
+      key={`title-sm-${active}`}
+      className={`${barlow.className} text-white leading-none uppercase animate-fadeUp`}
+      style={{ fontSize: "clamp(2.2rem, 9vw, 3rem)", whiteSpace: "pre-line" }}
+    >
+      {tab.title}
+    </h1>
+    <p className={`${interTight.className} text-white/85 text-sm leading-relaxed`}>
+      {tab.subtitle}
+    </p>
+    <div className="flex flex-col gap-3 items-start">
+      <CtaButton label={tab.btnLabel} />
+      <ArrowLink label={tab.linkLabel} />
+    </div>
+  </div>
+  <div className="mt-4 w-full">
+    <ScrollRow images={[...IMAGES_LEFT, ...IMAGES_RIGHT]} />
+  </div>
+</div>
 
       {/* ── TABLET (768px – 1024px): texto arriba, columnas abajo ── */}
-      <div className="relative z-10 hidden md:flex lg:hidden flex-col min-h-screen px-8 pt-10 pb-0 gap-6">
-        <Tabs active={active} setActive={setActive} />
-        <div className="flex gap-8 flex-1">
-          {/* Texto lado izquierdo */}
-          <div className="flex flex-col justify-center gap-6 flex-1">
-            <h1
-              key={`title-md-${active}`}
-              className={`${barlow.className} text-white leading-none uppercase animate-fadeUp`}
-              style={{ fontSize: "clamp(2.8rem, 6vw, 4rem)", whiteSpace: "pre-line" }}
-            >
-              {tab.title}
-            </h1>
-            <p className={`${interTight.className} text-white/85 text-sm leading-relaxed max-w-[400px]`}>
-              {tab.subtitle}
-            </p>
-            <div className="flex flex-col gap-3 items-start">
-              <CtaButton label={tab.btnLabel} />
-              <ArrowLink label={tab.linkLabel} />
-            </div>
-          </div>
-          {/* Columnas lado derecho */}
-          <div className="flex gap-3 w-[340px] flex-shrink-0">
-            <div className="flex-1 h-screen">
-              <ScrollColumn images={IMAGES_LEFT} direction="up" />
-            </div>
-            <div className="flex-1 h-screen">
-              <ScrollColumn images={IMAGES_RIGHT} direction="down" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="relative z-10 hidden md:flex lg:hidden" style={{ height: "100vh" }}>
+
+  {/* Columna de imágenes */}
+  <div
+    className="absolute z-10 w-[300px]"
+    style={{ right: 80, top: 0, height: "100vh", overflow: "hidden" }}
+  >
+    <ScrollColumn images={IMAGES_LEFT} direction="up" />
+  </div>
+
+  {/* Texto */}
+  <div
+    className="flex flex-col justify-center gap-6 px-8"
+    style={{ paddingTop: 80, paddingBottom: 40, paddingRight: 340, height: "100vh" }}
+  >
+    <Tabs active={active} setActive={setActive} />
+    <h1
+      key={`title-md-${active}`}
+      className={`${barlow.className} text-white text-5xl leading-none uppercase animate-fadeUp`}
+      style={{ whiteSpace: "pre-line" }}
+    >
+      {tab.title}
+    </h1>
+    <p className={`${interTight.className} text-white/85 text-lg leading-relaxed max-w-[380px]`}>
+      {tab.subtitle}
+    </p>
+    <div className="flex flex-col gap-3 items-start">
+      <CtaButton label={tab.btnLabel} />
+      <ArrowLink label={tab.linkLabel} />
+    </div>
+  </div>
+</div>
 
       {/* ── LAPTOP (1024px – 1280px) ── */}
       <div className="hidden lg:block xl:hidden w-full">
-        <div className="relative max-w-[1280px] mx-auto min-h-screen">
+        <div className="relative max-w-[1680px] mx-auto min-h-screen">
           {/* Columna izquierda */}
           <div
             className="absolute top-0 bottom-0 z-10"

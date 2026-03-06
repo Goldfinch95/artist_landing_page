@@ -5,11 +5,10 @@ export const HERO_TABS: HeroTab[] = [
     id: "workshops",
     label: "Sobre mi",
     bg: "#6B1A38",
-    bgImage:
-      "https://images.unsplash.com/photo-1549490349-8643362247b5?w=1400&q=80",
-    title: "Mi Pasión\npor la\nPintura",
-    subtitle: `Con años de experiencia en diversas técnicas, exploro paisajes, retratos y pintura de caballete con un estilo propio.  
-Mis obras han sido publicadas en revistas como Ediciones Bienvenidas, y cada creación refleja mi técnica y dedicación que luego comparto con mis alumnos.`,
+    bgImage: "https://images.unsplash.com/photo-1504502350688-00f5d59bbdeb?w=1400&q=80",
+    title: "Mi Pasión\npor\nla  Pintura.",
+    subtitle:
+      "Con años de experiencia, exploro paisajes, retratos y pintura de caballete\ncon un estilo propio que refleja mi técnica y dedicación.\nMis obras han sido publicadas en revistas como Ediciones Bienvenidas.",
     btnLabel: "Ver mis obras",
     linkLabel: "saber más",
   },
@@ -17,12 +16,10 @@ Mis obras han sido publicadas en revistas como Ediciones Bienvenidas, y cada cre
     id: "parties",
     label: "Taller Creativo",
     bg: "#0d3d35",
-    bgImage:
-      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1400&q=80",
     title: "Donde Nace\nla\nCreatividad.",
-    subtitle: `En Mi Taller, cada alumno desarrolla su creatividad en un espacio cálido y guiado.  
-Cada obra es única y refleja su esfuerzo y talento.  
-Aprenden técnica y disfrutan creando en comunidad.`,
+    subtitle:
+      "En Mi Taller, cada alumno desarrolla su creatividad en un espacio cálido y guiado.\nCada obra es única y refleja su esfuerzo y talento.\nAprenden técnica y disfrutan creando en comunidad.",
     btnLabel: "Ver trabajos de los alumnos",
     linkLabel: "Inspirarme",
   },
@@ -55,7 +52,19 @@ export const BLOB_SETS: string[][] = [
   ["#A8D8EA", "#FFDAC1", "#FFB3C1", "#B5EAD7"],
 ];
 
-// Card dimensions
-export const CARD_WIDTH = 260;
-export const CARD_HEIGHT = 380;
 export const CARD_GAP = 16;
+
+/* ── Dimensiones de cards por breakpoint ── */
+export const CARD_SIZES = {
+  mobile:  { width: 140, height: 190 },  // < 768px  — usado en ScrollRow
+  tablet:  { width: 160, height: 240 },  // 768–1024px — card más chica que el contenedor
+  laptop:  { width: 200, height: 300 },  // 1024–1280px
+  desktop: { width: 260, height: 380 },  // 1280px+
+};
+
+// Aliases para compatibilidad con PhotoCard y ScrollColumn existentes
+// Por defecto usan desktop — cada breakpoint los sobreescribe vía props
+export const CARD_WIDTH  = CARD_SIZES.desktop.width;
+export const CARD_HEIGHT = CARD_SIZES.desktop.height;
+
+
