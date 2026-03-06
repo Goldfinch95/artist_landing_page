@@ -5,6 +5,7 @@ import { Hero }   from "@/app/hero/components/Hero";
 import { useNavbar } from "./navbar/hooks/use_nav";
 import { Social } from "@/app/social/components/social_section";
 import { Recommendations } from "@/app/recommendations/components/recommendations_section";
+import { Footer } from "./section (slogan,card)/components/Footer";
 
 export default function Home() {
   const { openMenu, toggleMenu, closeMenu } = useNavbar();
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <Social />
       <Recommendations />
+      <Footer />
     </main>
   );
 }
